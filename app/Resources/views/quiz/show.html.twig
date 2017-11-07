@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Quiz</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ quiz.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ quiz.title }}</td>
+            </tr>
+            <tr>
+                <th>Firstquestionid</th>
+                <td>{{ quiz.firstQuestionID }}</td>
+            </tr>
+            <tr>
+                <th>Secondquestionid</th>
+                <td>{{ quiz.secondQuestionID }}</td>
+            </tr>
+            <tr>
+                <th>Thirdquestionid</th>
+                <td>{{ quiz.thirdQuestionID }}</td>
+            </tr>
+            <tr>
+                <th>Fourthquestionid</th>
+                <td>{{ quiz.fourthQuestionID }}</td>
+            </tr>
+            <tr>
+                <th>Fifthquestionid</th>
+                <td>{{ quiz.fifthQuestionID }}</td>
+            </tr>
+            <tr>
+                <th>Sixthquestionid</th>
+                <td>{{ quiz.sixthQuestionID }}</td>
+            </tr>
+            <tr>
+                <th>Seventhquestionid</th>
+                <td>{{ quiz.seventhQuestionID }}</td>
+            </tr>
+            <tr>
+                <th>Eighthquestionid</th>
+                <td>{{ quiz.eighthQuestionID }}</td>
+            </tr>
+            <tr>
+                <th>Ninthquestionid</th>
+                <td>{{ quiz.ninthQuestionID }}</td>
+            </tr>
+            <tr>
+                <th>Tenthquestionid</th>
+                <td>{{ quiz.tenthQuestionID }}</td>
+            </tr>
+            <tr>
+                <th>Isactive</th>
+                <td>{% if quiz.isActive %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('quiz_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('quiz_edit', { 'id': quiz.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

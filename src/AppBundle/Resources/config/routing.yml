@@ -1,0 +1,4 @@
+app_question:
+    resource: "@AppBundle/Resources/config/routing/question.yml"
+    prefix:   /question
+

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Quizzes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Firstquestionid</th>
+                <th>Secondquestionid</th>
+                <th>Thirdquestionid</th>
+                <th>Fourthquestionid</th>
+                <th>Fifthquestionid</th>
+                <th>Sixthquestionid</th>
+                <th>Seventhquestionid</th>
+                <th>Eighthquestionid</th>
+                <th>Ninthquestionid</th>
+                <th>Tenthquestionid</th>
+                <th>Isactive</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for quiz in quizzes %}
+            <tr>
+                <td><a href="{{ path('quiz_show', { 'id': quiz.id }) }}">{{ quiz.id }}</a></td>
+                <td>{{ quiz.title }}</td>
+                <td>{{ quiz.firstQuestionID }}</td>
+                <td>{{ quiz.secondQuestionID }}</td>
+                <td>{{ quiz.thirdQuestionID }}</td>
+                <td>{{ quiz.fourthQuestionID }}</td>
+                <td>{{ quiz.fifthQuestionID }}</td>
+                <td>{{ quiz.sixthQuestionID }}</td>
+                <td>{{ quiz.seventhQuestionID }}</td>
+                <td>{{ quiz.eighthQuestionID }}</td>
+                <td>{{ quiz.ninthQuestionID }}</td>
+                <td>{{ quiz.tenthQuestionID }}</td>
+                <td>{% if quiz.isActive %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('quiz_show', { 'id': quiz.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('quiz_edit', { 'id': quiz.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('quiz_new') }}">Create a new quiz</a>
+        </li>
+    </ul>
+{% endblock %}
